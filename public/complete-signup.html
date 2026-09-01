@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Finish setting up — OMLY</title>
+<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap"><div class="logo"><img src="/logo.png" alt="OMLY" style="height:32px;display:block;"></div></div>
+</header>
+
+<section>
+  <div class="wrap">
+    <form class="card-form" id="setup-form">
+      <p class="eyebrow">One last step</p>
+      <h2 style="margin-bottom:22px;">Name your account</h2>
+
+      <label for="company">Company name</label>
+      <input type="text" id="company" required>
+
+      <label for="slug">Your OMLY address</label>
+      <input type="text" id="slug" required>
+
+      <div class="field-error" id="error-box"></div>
+
+      <button type="submit" class="btn stamp block" id="submit-btn">Finish setup</button>
+    </form>
+  </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/config.js"></script>
+<script src="/js/supabase-client.js"></script>
+<script>
+  (async () => {
+    const session = await requireSession();
+    if (!session) return;
+
+    const companyEl = document.getElementById('company');
+    const slugEl = document.getElementById('slug');
+    let slugTouched = false;
+    slugEl.addEventListener('input', () => { slugTouched = true; });
+    companyEl.addEventListener('input', () => {
+      if (slugTouched) return;
+      slugEl.value = companyEl.value.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+    });
+
+    document.getElementById('setup-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const errorBox = document.getElementById('error-box');
+      const submitBtn = document.getElementById('submit-btn');
+      errorBox.style.display = 'none';
+      submitBtn.disabled = true;
+
+      try {
+        const res = await fetch('/.netlify/functions/create-organization', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${session.access_token}` },
+          body: JSON.stringify({ organizationName: companyEl.value.trim(), slug: slugEl.value.trim() })
+        });
+        if (!res.ok) throw new Error(await res.text());
+        window.location.href = '/dashboard.html';
+      } catch (err) {
+        errorBox.textContent = err.message || 'Something went wrong.';
+        errorBox.style.display = 'block';
+        submitBtn.disabled = false;
+      }
+    });
+  })();
+</script>
+</body>
+</html>
