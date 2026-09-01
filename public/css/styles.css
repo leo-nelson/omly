@@ -87,16 +87,14 @@ nav.site .nav-actions { display: flex; gap: 10px; margin-left: 12px; }
 .hero-feats { display: flex; gap: 22px; margin-top: 24px; flex-wrap: wrap; }
 .hero-feat { font-size: 0.85rem; color: var(--slate); display: flex; align-items: center; gap: 6px; font-weight: 500; }
 
-/* Mock product preview panel */
+/* Mock product preview: laptop panel + floating manual-cover card */
+.mock-scene { position: relative; padding: 20px 60px 40px 0; }
 .mock-panel {
   background: var(--navy);
   border-radius: 14px;
-  padding: 14px;
+  padding: 10px 14px 14px;
   box-shadow: 0 30px 60px -20px rgba(22,35,58,0.35);
+  position: relative;
+  z-index: 1;
 }
-.mock-inner { background: #fff; border-radius: 8px; display: flex; min-height: 340px; overflow: hidden; }
-.mock-sidebar { width: 150px; background: var(--navy); padding: 18px 14px; flex-shrink: 0; }
-.mock-sidebar .mock-logo { color: #fff; font-weight: 800; font-size: 1rem; margin-bottom: 22px; }
-.mock-sidebar .mock-item { color: #A9B4C2; font-size: 0.78rem; padding: 8px 0; }
-.mock-sidebar .mock-item.active { color: #fff; font-weight: 600; }
-.m
+.mock-t
