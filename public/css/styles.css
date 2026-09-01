@@ -40,7 +40,7 @@ img{max-width:100%;display:block}
   justify-content:space-between;
   gap:28px;
 }
-.brand img{width:145px;height:auto}
+.brand img{height:46px;width:auto;max-width:none}
 .main-nav{display:flex;align-items:center;gap:40px;font-size:14px}
 .main-nav a{transition:.2s}
 .main-nav a:hover{color:var(--orange)}
