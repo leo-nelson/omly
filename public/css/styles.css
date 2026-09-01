@@ -238,7 +238,7 @@ img{max-width:100%;display:block}
 .features{background:var(--surface);padding:34px 0 38px;border-top:1px solid #f0f2f4}
 .features h2{text-align:center;font-size:26px;margin:0 0 38px;letter-spacing:-.02em}
 .feature-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:34px}
-.feature-card{padding:0 6px}
+.feature-card{padding:0 10px}
 .feature-icon{height:44px;margin-bottom:14px;display:flex;align-items:center} .feature-icon svg{width:34px;height:34px;stroke:var(--navy)}
 .feature-card h3{font-size:16px;margin:8px 0 8px}
 .feature-card p{margin:0;color:#596675;font-size:13px;line-height:1.55}
