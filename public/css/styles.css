@@ -1,0 +1,102 @@
+/* ============================================================
+   OMLY — design system, v3
+   Clean corporate SaaS: white nav, light background, navy text,
+   orange accent, card-based sections. Matches the OMLY logo.
+   ============================================================ */
+
+:root {
+  --bg: #F7F7F5;
+  --navy: #16233A;
+  --accent: #F2793B;
+  --ink: #16233A;
+  --slate: #6B7480;
+  --hairline: #E4E2DC;
+  --white: #FFFFFF;
+
+  --font-display: 'Inter', 'Arial', sans-serif;
+  --font-body: 'Inter', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.4em;
+  line-height: 1.1;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---- Layout shell ---- */
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 32px; }
+
+/* ---- Nav ---- */
+header.site {
+  background: var(--white);
+  border-bottom: 1px solid var(--hairline);
+  padding: 18px 0;
+}
+header.site .wrap { display: flex; align-items: center; justify-content: space-between; }
+.logo { font-weight: 800; font-size: 1.3rem; }
+nav.site { display: flex; align-items: center; gap: 28px; }
+nav.site a.nav-link {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--ink);
+}
+nav.site a.nav-link:hover { color: var(--accent); }
+nav.site .nav-actions { display: flex; gap: 10px; margin-left: 12px; }
+@media (max-width: 900px) {
+  nav.site .nav-link { display: none; }
+}
+
+/* ---- Hero ---- */
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 72px 0;
+}
+@media (max-width: 900px) { .hero { grid-template-columns: 1fr; padding: 44px 0; } }
+.hero h1 { font-size: 3.1rem; }
+.hero h1 .dot { color: var(--accent); }
+.hero-feats { display: flex; gap: 22px; margin-top: 24px; flex-wrap: wrap; }
+.hero-feat { font-size: 0.85rem; color: var(--slate); display: flex; align-items: center; gap: 6px; font-weight: 500; }
+
+/* Mock product preview panel */
+.mock-panel {
+  background: var(--navy);
+  border-radius: 14px;
+  padding: 14px;
+  box-shadow: 0 30px 60px -20px rgba(22,35,58,0.35);
+}
+.mock-inner { background: #fff; border-radius: 8px; display: flex; min-height: 340px; overflow: hidden; }
+.mock-sidebar { width: 150px; background: var(--navy); padding: 18px 14px; flex-shrink: 0; }
+.mock-sidebar .mock-logo { color: #fff; font-weight: 800; font-size: 1rem; margin-bottom: 22px; }
+.mock-sidebar .mock-item { color: #A9B4C2; font-size: 0.78rem; padding: 8px 0; }
+.mock-sidebar .mock-item.active { color: #fff; font-weight: 600; }
+.m
