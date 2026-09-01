@@ -60,7 +60,7 @@ header.site {
   padding: 18px 0;
 }
 header.site .wrap { display: flex; align-items: center; justify-content: space-between; }
-.logo { font-weight: 800; font-size: 1.3rem; }
+.logo img { height: 44px !important; display: block; }
 nav.site { display: flex; align-items: center; gap: 28px; }
 nav.site a.nav-link {
   font-size: 0.92rem;
@@ -88,7 +88,7 @@ nav.site .nav-actions { display: flex; gap: 10px; margin-left: 12px; }
 .hero-feat { font-size: 0.85rem; color: var(--slate); display: flex; align-items: center; gap: 6px; font-weight: 500; }
 
 /* Mock product preview: laptop panel + floating manual-cover card */
-.mock-scene { position: relative; padding: 20px 60px 40px 0; }
+.mock-scene { position: relative; padding: 20px 60px 56px 0; }
 .mock-panel {
   background: var(--navy);
   border-radius: 14px;
@@ -97,8 +97,28 @@ nav.site .nav-actions { display: flex; gap: 10px; margin-left: 12px; }
   position: relative;
   z-index: 1;
 }
-.mock-topbar { display: flex; gap: 6px; padding: 4px 2px 10px; }
+.mock-laptop-base {
+  height: 14px;
+  width: 108%;
+  margin-left: -4%;
+  background: linear-gradient(180deg, #1F2E45, #14202E);
+  border-radius: 0 0 10px 10px;
+  position: relative;
+  z-index: 1;
+}
+.mock-laptop-base::after {
+  content: '';
+  position: absolute;
+  left: 50%; top: 0;
+  transform: translateX(-50%);
+  width: 60px; height: 5px;
+  background: #0A1420;
+  border-radius: 0 0 4px 4px;
+}
+.mock-topbar { display: flex; align-items: center; justify-content: space-between; padding: 4px 2px 10px; }
+.mock-topbar .dots { display: flex; gap: 6px; }
 .mock-topbar span { width: 8px; height: 8px; border-radius: 50%; background: #445269; display: inline-block; }
+.mock-topbar .cam { width: 6px; height: 6px; border-radius: 50%; background: #0A1420; border: 1px solid #445269; }
 .mock-inner { background: #fff; border-radius: 8px; display: flex; min-height: 320px; overflow: hidden; }
 .mock-sidebar { width: 150px; background: var(--navy); padding: 18px 14px; flex-shrink: 0; }
 .mock-sidebar .mock-logo { color: #fff; font-weight: 800; font-size: 1rem; margin-bottom: 22px; }
