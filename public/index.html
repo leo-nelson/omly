@@ -10,7 +10,7 @@
 
 <header class="site">
   <div class="wrap">
-    <div class="logo"><img src="/logo.png" alt="OMLY" style="height:30px;display:block;"></div>
+    <div class="logo"><img src="/logo.png" alt="OMLY"></div>
     <nav class="site">
       <a class="nav-link" href="/">Home</a>
       <a class="nav-link" href="#features">Features</a>
@@ -44,7 +44,7 @@
 
     <div class="mock-scene">
       <div class="mock-panel">
-        <div class="mock-topbar"><span></span><span></span><span></span></div>
+        <div class="mock-topbar"><div class="dots"><span></span><span></span><span></span></div><div class="cam"></div></div>
         <div class="mock-inner">
           <div class="mock-sidebar">
             <div class="mock-logo">OMLY</div>
@@ -72,6 +72,7 @@
           </div>
         </div>
       </div>
+      <div class="mock-laptop-base"></div>
       <div class="mock-cover">
         <div class="mock-cover-logo">OMLY</div>
         <div class="mock-cover-title">OPERATION &amp;<br>MAINTENANCE<br><span>MANUAL</span></div>
@@ -108,3 +109,75 @@
       </div>
       <div class="feature">
         <div class="icon">👥</div>
+        <h4>Team Ready</h4>
+        <p>Built to scale to your whole team as you grow.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="pricing">
+  <div class="wrap">
+    <p class="eyebrow">Pricing</p>
+    <h2>Pay Per Manual, Or Don't Think About It Again</h2>
+    <p class="lede" style="color:#B9C4D6;">Occasional jobs: buy credits as you need them. Running handovers every week: a subscription works out cheaper by the third manual.</p>
+
+    <div class="pricing-grid" style="margin-top:36px;">
+      <div class="title-block plan">
+        <p class="eyebrow">Pay As You Go</p>
+        <h3 style="font-size:1.3rem;">Single Manual</h3>
+        <div class="price">£19</div>
+        <ul><li>1 manual credit</li><li>Never expires</li><li>Your branding applied</li></ul>
+        <button class="btn ghost block" data-price-key="payg:0">Buy Credit</button>
+      </div>
+
+      <div class="title-block plan" style="border-color:var(--accent);">
+        <div class="badge-discount">50% OFF · 3MO</div>
+        <p class="eyebrow">Subscription</p>
+        <h3 style="font-size:1.3rem;">Growth</h3>
+        <div class="price">£89<small>/mo</small></div>
+        <ul><li>25 manuals / month</li><li>White-label branding</li><li>Cancel anytime</li></ul>
+        <button class="btn stamp block" data-price-key="subscriptions:1">Start Growth Plan</button>
+      </div>
+
+      <div class="title-block plan">
+        <p class="eyebrow">Subscription</p>
+        <h3 style="font-size:1.3rem;">Agency</h3>
+        <div class="price">£199<small>/mo</small></div>
+        <ul><li>Unlimited manuals</li><li>Multiple sites/branches</li><li>Priority support</li></ul>
+        <button class="btn ghost block" data-price-key="subscriptions:2">Start Agency Plan</button>
+      </div>
+    </div>
+    <p class="muted" style="margin-top:20px;color:#8fa3bd;">Also available: 5-pack (£75) and 20-pack (£240) credit bundles, and the Solo subscription (£34/mo, 8 manuals) — see these after signing up.</p>
+  </div>
+</section>
+
+<section class="dark" style="padding-top:0;border-top:1px solid #2A3A50;">
+  <div class="wrap testimonial-bar">
+    <div class="quote">
+      "OMLY has transformed how we deliver O&amp;M manuals. What used to take days now takes minutes."
+      — Operations Director
+    </div>
+    <div class="logo-strip">
+      <span>AUTOGLASS</span><span>NATIONAL WINDSCREENS</span><span>MOOG</span><span>DPD</span>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">OMLY — independently operated O&amp;M manual generation.</div>
+</footer>
+
+<script src="/config.js"></script>
+<script src="/js/pricing-data.js"></script>
+<script>
+  document.querySelectorAll('[data-price-key]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const [group, idx] = btn.dataset.priceKey.split(':');
+      const item = window.HANDOVER_PRICING[group][Number(idx)];
+      window.location.href = `/signup.html?intent=${group}&priceId=${item.priceId}`;
+    });
+  });
+</script>
+</body>
+</html>
